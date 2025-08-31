@@ -1,0 +1,13 @@
+services:
+  nocodb:
+    image: nocodb/nocodb:latest
+    container_name: nocodb
+    ports:
+      - "8090:8080"           # open UI at http://localhost:8090
+    volumes:
+      - nc-data:/usr/app/data
+    environment:
+      - NC_DISABLE_TELEMETRY=true
+    restart: unless-stopped
+volumes:
+  nc-data:
